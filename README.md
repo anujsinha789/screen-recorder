@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/assets/markdown.png" />
+  <img src="../../src/assets/markdown.png" />
 </p>
 <hr/>
 
