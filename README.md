@@ -1,6 +1,11 @@
+<p align="center">
+  <img src="src/assets/markdown.png" />
+</p>
+<hr/>
+
 [Visit](https://scorder.netlify.com)
 
-Note: Works on Chromium based browsers for now
+<b>Note</b>: Works on Chromium based browsers for now
 
 ## Installation and Setup Instructions
 

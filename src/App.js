@@ -59,6 +59,11 @@ export default function App() {
       downloadLink.href = URL.createObjectURL(blob);
       downloadLink.download = `${filename || "recording"}.webm`;
       stopRecord();
+      var tracks = mediaRecorder.stream.getTracks();
+      console.log(tracks);
+      tracks.forEach((track) => {
+        track.stop();
+      });
       videoElement.srcObject = null;
     };
 
@@ -173,6 +178,7 @@ export default function App() {
           className="record"
           disabled={stop}
           onClick={() => {
+            console.log(mr);
             mr.stop();
           }}
         >
