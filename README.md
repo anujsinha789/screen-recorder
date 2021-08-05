@@ -1,3 +1,7 @@
+[Visit](https://scorder.netlify.com)
+
+Note: Works on Chromium based browsers for now
+
 ## Installation and Setup Instructions
 
 #### Example:
@@ -18,4 +22,4 @@ To Start Server:
 
 To Visit App:
 
-`localhost:3000/`
+`localhost:3000`

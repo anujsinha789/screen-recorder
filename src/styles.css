@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Style+Script&display=swap");
+
 body {
   display: block;
   margin: 0;
@@ -8,8 +10,35 @@ body {
   text-align: center;
 }
 
-.App > h1 {
+.App__Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.App__Description {
   color: #4caf50;
+  font-size: medium;
+  margin: 10px;
+}
+
+.App__Header > h1 {
+  color: #4caf50;
+  font-family: "Style Script", cursive;
+  font-size: 50px;
+  margin-top: 45px;
+}
+
+.App__Vid {
+  background-color: #4caf50;
+  height: 480px;
+  width: 640px;
+  margin: auto;
+}
+
+.App__Body {
+  margin-bottom: 100px;
 }
 
 .record {
@@ -22,4 +51,18 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 10px;
+}
+
+.record > a {
+  color: white;
+  text-decoration: none;
+}
+
+#Download {
+  background-color: cadetblue;
+}
+
+#stop {
+  background-color: red;
 }

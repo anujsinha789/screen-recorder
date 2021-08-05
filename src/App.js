@@ -1,12 +1,11 @@
 import "./styles.css";
+import logo from "./assets/logo.png";
 import React from "react";
 
 export default function App() {
   const [dow, setDow] = React.useState("none");
   const [stop, setStop] = React.useState(true);
   const [rec, setRec] = React.useState(false);
-  const [shouldStop, setShouldStop] = React.useState(false);
-  const [stopped, setStopped] = React.useState(false);
 
   const [videoElement, setVideoElement] = React.useState(null);
   const [downloadLink, setDownloadLink] = React.useState(null);
@@ -32,7 +31,7 @@ export default function App() {
   function stopRecord() {
     setRec(false);
     setStop(true);
-    setDow("block");
+    setDow("inline");
   }
 
   const audioRecordConstraints = {
@@ -42,14 +41,12 @@ export default function App() {
   const handleRecord = function ({ stream, mimeType }) {
     startRecord();
     let recordedChunks = [];
-    setStopped(false);
     const mediaRecorder = new MediaRecorder(stream);
     setMr(mediaRecorder);
 
     mediaRecorder.ondataavailable = function (e) {
       if (e.data.size > 0) {
         recordedChunks.push(e.data);
-        console.log(recordedChunks);
       }
     };
 
@@ -63,29 +60,24 @@ export default function App() {
       downloadLink.download = `${filename || "recording"}.webm`;
       stopRecord();
       videoElement.srcObject = null;
-      console.log(`${filename || "recording"}.webm`);
     };
 
     mediaRecorder.start(200);
-    console.log(mediaRecorder);
   };
 
   async function recordAudio() {
     const mimeType = "audio/webm";
-    setShouldStop(false);
     navigator.mediaDevices
       .getUserMedia({
         audio: audioRecordConstraints,
       })
       .then(function (stream) {
-        console.log(stream);
         handleRecord({ stream, mimeType });
       });
   }
 
   async function recordVideo() {
     const mimeType = "video/webm";
-    setShouldStop(false);
     const constraints = {
       audio: {
         echoCancellation: true,
@@ -109,7 +101,6 @@ export default function App() {
 
   async function recordScreen() {
     const mimeType = "video/webm";
-    setShouldStop(false);
     const constraints = {
       video: {
         cursor: "motion",
@@ -135,7 +126,6 @@ export default function App() {
             const audioIn01 =
               audioContext.createMediaStreamSource(displayStream);
             const audioIn02 = audioContext.createMediaStreamSource(voiceStream);
-
             const audioDestination =
               audioContext.createMediaStreamDestination();
 
@@ -150,39 +140,56 @@ export default function App() {
 
             handleRecord({ stream, mimeType });
             videoElement.srcObject = stream;
-            console.log(voiceStream);
+          })
+          .catch((error) => {
+            console.log(error);
           });
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 
   return (
     <div className="App">
-      <h1>Recorder</h1>
-      <button style={{ display: `${dow}` }} className="record">
-        <a id="download">Downloads</a>
-      </button>
-      <button
-        id="stop"
-        className="record"
-        disabled={stop}
-        onClick={() => {
-          console.log(mr);
-          mr.stop();
-        }}
-      >
-        Stop
-      </button>
-      <button className="record" disabled={rec} onClick={recordAudio}>
-        Record Audio
-      </button>
-      <button className="record" disabled={rec} onClick={recordVideo}>
-        Record Video
-      </button>
-      <button className="record" disabled={rec} onClick={recordScreen}>
-        Record Screen
-      </button>
+      <div className="App__Header">
+        <img src={logo} width="150px" height="150px" />
+        <h1>Scorder</h1>
+      </div>
 
-      <div>
+      <div className="App__Description">
+        <h3>
+          A simple media recorder for people who haven't got the time to deal
+          with Complex Software
+        </h3>
+      </div>
+
+      <div className="App__Body">
+        <button style={{ display: `${dow}` }} id="Download" className="record">
+          <a id="download">Download</a>
+        </button>
+        <button
+          id="stop"
+          className="record"
+          disabled={stop}
+          onClick={() => {
+            mr.stop();
+          }}
+        >
+          Stop
+        </button>
+        <button className="record" disabled={rec} onClick={recordAudio}>
+          Record Audio
+        </button>
+        <button className="record" disabled={rec} onClick={recordVideo}>
+          Record Video
+        </button>
+        <button className="record" disabled={rec} onClick={recordScreen}>
+          Record Screen
+        </button>
+      </div>
+
+      <div className="App__Vid">
         <video autoPlay height="480" width="640" muted></video>
       </div>
     </div>
