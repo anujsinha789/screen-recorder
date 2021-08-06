@@ -2,6 +2,7 @@
 
 body {
   display: block;
+  background-color: black;
   margin: 0;
 }
 
@@ -14,13 +15,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 3px;
 }
 
 .App__Description {
   color: #4caf50;
   font-size: medium;
-  margin: 10px;
+  margin: auto;
+  margin-bottom: 10px;
+  width: 400px;
+  height: 50px;
 }
 
 .App__Header > h1 {
@@ -28,13 +32,6 @@ body {
   font-family: "Style Script", cursive;
   font-size: 50px;
   margin-top: 45px;
-}
-
-.App__Vid {
-  background-color: #4caf50;
-  height: 480px;
-  width: 640px;
-  margin: auto;
 }
 
 .App__Body {
@@ -65,4 +62,74 @@ body {
 
 #stop {
   background-color: red;
+}
+
+#bars {
+  height: 70px;
+  left: 50%;
+  margin: -30px 0 0 -20px;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+}
+
+.bar {
+  background: green;
+  bottom: 1px;
+  height: 10px;
+  position: absolute;
+  width: 3px;
+  animation: sound 0ms -800ms linear infinite alternate;
+}
+
+@keyframes sound {
+  0% {
+    opacity: 0.35;
+    height: 3px;
+  }
+  100% {
+    opacity: 1;
+    height: 28px;
+  }
+}
+
+.bar:nth-child(1) {
+  left: 1px;
+  animation-duration: 474ms;
+}
+.bar:nth-child(2) {
+  left: 5px;
+  animation-duration: 433ms;
+}
+.bar:nth-child(3) {
+  left: 9px;
+  animation-duration: 407ms;
+}
+.bar:nth-child(4) {
+  left: 13px;
+  animation-duration: 458ms;
+}
+.bar:nth-child(5) {
+  left: 17px;
+  animation-duration: 400ms;
+}
+.bar:nth-child(6) {
+  left: 21px;
+  animation-duration: 427ms;
+}
+.bar:nth-child(7) {
+  left: 25px;
+  animation-duration: 441ms;
+}
+.bar:nth-child(8) {
+  left: 29px;
+  animation-duration: 419ms;
+}
+.bar:nth-child(9) {
+  left: 33px;
+  animation-duration: 487ms;
+}
+.bar:nth-child(10) {
+  left: 37px;
+  animation-duration: 442ms;
 }

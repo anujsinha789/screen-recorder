@@ -1,15 +1,16 @@
 import "./styles.css";
 import logo from "./assets/logo.png";
 import React from "react";
+import SoundBar from "./components/SoundBar";
 
 export default function App() {
   const [dow, setDow] = React.useState("none");
   const [stop, setStop] = React.useState(true);
   const [rec, setRec] = React.useState(false);
+  const [sb, setSb] = React.useState(false);
 
   const [videoElement, setVideoElement] = React.useState(null);
   const [downloadLink, setDownloadLink] = React.useState(null);
-  const [stopButton, setStopButton] = React.useState(null);
 
   const [mr, setMr] = React.useState(null);
 
@@ -18,8 +19,6 @@ export default function App() {
     setVideoElement(videoElement1);
     const downloadLink1 = document.getElementById("download");
     setDownloadLink(downloadLink1);
-    const stopButton1 = document.getElementById("stop");
-    setStopButton(stopButton1);
   }, []);
 
   function startRecord() {
@@ -60,7 +59,6 @@ export default function App() {
       downloadLink.download = `${filename || "recording"}.webm`;
       stopRecord();
       var tracks = mediaRecorder.stream.getTracks();
-      console.log(tracks);
       tracks.forEach((track) => {
         track.stop();
       });
@@ -164,8 +162,8 @@ export default function App() {
 
       <div className="App__Description">
         <h3>
-          A simple media recorder for people who haven't got the time to deal
-          with Complex Software
+          A simple Media Recorder for people haven't got the time to deal with
+          Complex Software
         </h3>
       </div>
 
@@ -178,13 +176,20 @@ export default function App() {
           className="record"
           disabled={stop}
           onClick={() => {
-            console.log(mr);
+            setSb(false);
             mr.stop();
           }}
         >
           Stop
         </button>
-        <button className="record" disabled={rec} onClick={recordAudio}>
+        <button
+          className="record"
+          disabled={rec}
+          onClick={() => {
+            recordAudio();
+            setSb(true);
+          }}
+        >
           Record Audio
         </button>
         <button className="record" disabled={rec} onClick={recordVideo}>
@@ -197,6 +202,7 @@ export default function App() {
 
       <div className="App__Vid">
         <video autoPlay height="480" width="640" muted></video>
+        {sb === true ? <SoundBar /> : null}
       </div>
     </div>
   );
