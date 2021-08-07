@@ -162,8 +162,8 @@ export default function App() {
 
       <div className="App__Description">
         <h3>
-          A simple Media Recorder for people haven't got the time to deal with
-          Complex Software
+          A simple Media Recorder for people who haven't got the time to deal
+          with Complex Software
         </h3>
       </div>
 
