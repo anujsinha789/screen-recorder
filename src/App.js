@@ -2,6 +2,7 @@ import "./styles.css";
 import logo from "./assets/logo.png";
 import React from "react";
 import SoundBar from "./components/SoundBar";
+import GoogleLoginComponent from "./components/GoogleLoginComponent";
 
 export default function App() {
   const [dow, setDow] = React.useState("none");
@@ -160,11 +161,10 @@ export default function App() {
         <h1>Scorder</h1>
       </div>
 
+      <GoogleLoginComponent clientId={process.env.REACT_APP_CLIENT_ID} />
+
       <div className="App__Description">
-        <h3>
-          A simple Media Recorder for people who haven't got the time to deal
-          with Complex Software
-        </h3>
+        <h3>Your simple Media Recorder</h3>
       </div>
 
       <div className="App__Body">
