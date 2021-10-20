@@ -146,3 +146,16 @@ body {
   font-size: 16px;
   border-radius: 10px;
 }
+
+.LoggedIn__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoggedIn__image {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin-left: 10px;
+}
