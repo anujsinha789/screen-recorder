@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles.css";
+import LoggedIn from "./LoggedIn";
 
 class GoogleLoginComponent extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class GoogleLoginComponent extends Component {
       (googleUser) => {
         let profile = googleUser.getBasicProfile();
         this.setState({ prof: profile });
+        console.log(profile);
       },
       (error) => {
         alert(JSON.stringify(error, undefined, 2));
@@ -56,9 +58,11 @@ class GoogleLoginComponent extends Component {
           className="mainGoogle__Button loginBtn loginBtn--google"
           ref="googleLoginBtn"
         >
-          {this.state.prof.Se === undefined
-            ? "Login"
-            : `Logged In as ${this.state.prof.Se}`}
+          {this.state.prof.Se === undefined ? (
+            "Login"
+          ) : (
+            <LoggedIn data={this.state.prof} />
+          )}
         </button>
       </div>
     );
