@@ -204,6 +204,16 @@ export default function App() {
         <video autoPlay height="480" width="640" muted></video>
         {sb === true ? <SoundBar /> : null}
       </div>
+
+      <div className="App__Footer">
+        Made with 🧡, by{" "}
+        <a
+          className="App__Footerlink"
+          href="https://github.com/anusikh/screen-recorder"
+        >
+          anusikh
+        </a>
+      </div>
     </div>
   );
 }

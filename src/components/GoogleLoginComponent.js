@@ -19,7 +19,7 @@ class GoogleLoginComponent extends Component {
       (googleUser) => {
         let profile = googleUser.getBasicProfile();
         this.setState({ prof: profile });
-        console.log(profile);
+        console.log(this.state.prof);
       },
       (error) => {
         alert(JSON.stringify(error, undefined, 2));
@@ -58,7 +58,7 @@ class GoogleLoginComponent extends Component {
           className="mainGoogle__Button loginBtn loginBtn--google"
           ref="googleLoginBtn"
         >
-          {this.state.prof.Se === undefined ? (
+          {this.state.prof.jf === undefined ? (
             "Login"
           ) : (
             <LoggedIn data={this.state.prof} />

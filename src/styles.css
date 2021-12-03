@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Style+Script&display=swap");
 
+a,
+u {
+  text-decoration: none;
+  color: red;
+}
+
 body {
   display: block;
   background-color: black;
@@ -15,27 +21,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3px;
+}
+
+.App__Footer {
+  color: #4caf50;
+  margin-top: auto;
+  font-size: medium;
 }
 
 .App__Description {
   color: #4caf50;
   font-size: medium;
   margin: auto;
-  margin-bottom: 20px;
-  width: 400px;
-  height: 50px;
+  width: 25rem;
+  height: 1.25rem;
+  margin-bottom: 0.625rem;
 }
 
 .App__Header > h1 {
   color: #4caf50;
   font-family: "Style Script", cursive;
-  font-size: 50px;
-  margin-top: 45px;
+  font-size: 3.125rem;
+  margin-top: 2.813rem;
 }
 
 .App__Body {
-  margin-bottom: 100px;
+  margin-bottom: 6.25rem;
 }
 
 .record {
@@ -140,7 +151,6 @@ body {
   border: 0;
   padding: 15px 32px;
   text-align: center;
-  margin: 10px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;

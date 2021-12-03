@@ -4,7 +4,7 @@ function LoggedIn(props) {
   return (
     <div className="LoggedIn__container">
       <span className="LoggedIn__text">Logged In</span>
-      <img src={props.data.SJ} className="LoggedIn__image" />
+      <img src={props.data.RM} className="LoggedIn__image" />
     </div>
   );
 }
