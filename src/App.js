@@ -113,45 +113,41 @@ export default function App() {
     if (!(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia)) {
       return window.alert("Screen Record not supported!");
     }
+
     let stream = null;
-    navigator.mediaDevices
-      .getDisplayMedia({
-        video: { cursor: "motion" },
-        audio: { echoCancellation: true },
-      })
-      .then((displayStream) => {
-        const audioContext = new AudioContext();
-        navigator.mediaDevices
-          .getUserMedia({
-            audio: { echoCancellation: true },
-            video: false,
-          })
-          .then((voiceStream) => {
-            const audioIn01 =
-              audioContext.createMediaStreamSource(displayStream);
-            const audioIn02 = audioContext.createMediaStreamSource(voiceStream);
-            const audioDestination =
-              audioContext.createMediaStreamDestination();
 
-            audioIn01.connect(audioDestination);
-            audioIn02.connect(audioDestination);
+    const displayStream = await navigator.mediaDevices.getDisplayMedia({
+      video: { cursor: "motion" },
+      audio: { echoCancellation: true },
+    });
 
-            const tracks = [
-              ...displayStream.getVideoTracks(),
-              ...audioDestination.stream.getTracks(),
-            ];
-            stream = new MediaStream(tracks);
+    const voiceStream = await navigator.mediaDevices.getUserMedia({
+      audio: { echoCancellation: true },
+      video: false,
+    });
 
-            handleRecord({ stream, mimeType });
-            videoElement.srcObject = stream;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const audioTrackAvailable =
+      displayStream.getAudioTracks().length === 0 ? false : true;
+
+    const audioContext = new AudioContext();
+    const audioIn01 = !audioTrackAvailable
+      ? null
+      : audioContext.createMediaStreamSource(displayStream);
+    const audioIn02 = audioContext.createMediaStreamSource(voiceStream);
+    const audioDestination = audioContext.createMediaStreamDestination();
+
+    !audioTrackAvailable ? null : audioIn01.connect(audioDestination);
+    audioIn02.connect(audioDestination);
+
+    const tracks = [
+      ...displayStream.getVideoTracks(),
+      ...audioDestination?.stream?.getTracks(),
+    ];
+
+    stream = new MediaStream(tracks);
+
+    handleRecord({ stream, mimeType });
+    videoElement.srcObject = stream;
   }
 
   return (
