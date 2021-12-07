@@ -3,9 +3,15 @@
 </p>
 <hr/>
 
-[Visit](https://scorder.netlify.com)
+[Visit](https://scorder.xyz)
 
-<b>Note</b>: Works on Chromium based browsers for now
+Your simple Media Recorder
+
+<b>Latest</b>: Works on Firefox too.
+
+<p align="center">
+  <img src="SS/Screenshot.PNG" />
+</p>
 
 ## Installation and Setup Instructions
 
