@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles.css";
 import LoggedIn from "./LoggedIn";
+import { MdLogin } from "react-icons/md";
 
 class GoogleLoginComponent extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class GoogleLoginComponent extends Component {
         console.log(this.state.prof);
       },
       (error) => {
-        alert(JSON.stringify(error, undefined, 2));
+        console.log(JSON.stringify(error, undefined, 2));
       }
     );
   };
@@ -59,7 +60,10 @@ class GoogleLoginComponent extends Component {
           ref="googleLoginBtn"
         >
           {this.state.prof.jf === undefined ? (
-            "Login"
+            <>
+              Login &nbsp;
+              <MdLogin />
+            </>
           ) : (
             <LoggedIn data={this.state.prof} />
           )}

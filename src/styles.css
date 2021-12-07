@@ -13,66 +13,89 @@ body {
 }
 
 .App {
+  height: 100vh;
   font-family: sans-serif;
-  text-align: center;
 }
 
 .App__Header {
+  height: 5rem;
+  width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .App__Footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 0.3rem 0;
   color: #4caf50;
-  margin-top: auto;
-  font-size: medium;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .App__Description {
   color: #4caf50;
-  font-size: medium;
-  margin: auto;
-  width: 25rem;
-  height: 1.25rem;
-  margin-bottom: 0.625rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 5rem 0 5rem 0;
 }
 
-.App__Header > h1 {
-  color: #4caf50;
-  font-family: "Style Script", cursive;
-  font-size: 3.125rem;
-  margin-top: 2.813rem;
+.App__Description > p {
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .App__Body {
-  margin-bottom: 6.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10rem 0 10rem;
+}
+
+.App__Buttons {
+  margin: 3rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.App__Vid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50rem;
 }
 
 .record {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
   border: none;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 1rem;
   color: white;
-  padding: 15px 32px;
-  text-align: center;
-  margin: 10px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .record > a {
   color: white;
-  text-decoration: none;
 }
 
 #Download {
-  background-color: cadetblue;
+  background-color: cornflowerblue;
 }
 
 #stop {
   background-color: red;
+}
+
+#Preview {
+  background-color: cadetblue;
 }
 
 #bars {
@@ -146,26 +169,22 @@ body {
 }
 
 .mainGoogle__Button {
-  color: white;
-  background-color: #4caf50;
-  border: 0;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 10px;
+  background-color: transparent;
+  border: none;
+  color: #4caf50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin: 0 0.5rem 0 0;
 }
 
 .LoggedIn__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .LoggedIn__image {
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
-  margin-left: 10px;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 3.5rem;
 }
