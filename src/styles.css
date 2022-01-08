@@ -41,7 +41,7 @@ body {
   color: #4caf50;
   font-size: 1.5rem;
   text-align: center;
-  margin: 5rem 0 5rem 0;
+  margin: 0 0 0 0;
 }
 
 .App__Description > p {
@@ -178,9 +178,6 @@ body {
   font-size: 1.2rem;
   font-weight: bolder;
   margin: 0 0.5rem 0 0;
-}
-
-.LoggedIn__container {
 }
 
 .LoggedIn__image {
