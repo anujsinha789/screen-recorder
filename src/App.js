@@ -9,6 +9,7 @@ import {
   BsPlayBtnFill,
   BsStopBtnFill,
 } from "react-icons/bs";
+import GoogleAd from "./components/GoogleAd";
 
 export default function App() {
   const [dow, setDow] = React.useState("none");
@@ -236,6 +237,7 @@ export default function App() {
           {sb === true ? <SoundBar /> : null}
         </div>
       </div>
+      <GoogleAd />
       <div className="App__Footer">
         Made with <BsFillSuitHeartFill color="red" />, by{" "}
         <a
