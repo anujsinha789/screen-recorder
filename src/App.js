@@ -2,7 +2,6 @@ import "./styles.css";
 import logo from "./assets/logo.png";
 import React from "react";
 import SoundBar from "./components/SoundBar";
-import GoogleLoginComponent from "./components/GoogleLoginComponent";
 import {
   BsDownload,
   BsFillSuitHeartFill,
@@ -10,6 +9,7 @@ import {
   BsStopBtnFill,
 } from "react-icons/bs";
 import GoogleAd from "./components/GoogleAd";
+import FirebaseLogin from "./components/FirebaseLogin";
 
 export default function App() {
   const [dow, setDow] = React.useState("none");
@@ -174,7 +174,7 @@ export default function App() {
           height="80px"
           style={{ margin: "0.4rem 0 0 0.4rem" }}
         />
-        <GoogleLoginComponent clientId={process.env.REACT_APP_CLIENT_ID} />
+        <FirebaseLogin />
       </div>
 
       <div className="App__Description">
@@ -203,6 +203,7 @@ export default function App() {
               <BsDownload size={25} />
             </a>
           </button>
+
           <button
             id="stop"
             className="record"
