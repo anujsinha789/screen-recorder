@@ -168,20 +168,28 @@ body {
   animation-duration: 442ms;
 }
 
-.mainGoogle__Button {
-  background-color: transparent;
-  border: none;
-  color: #4caf50;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: bolder;
-  margin: 0 0.5rem 0 0;
-}
-
-.LoggedIn__image {
+.FirebaseLogin__image {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 3.5rem;
+}
+
+.FirebaseLogin__Main {
+  color: #4caf50;
+  margin: 0 1.5rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FirebaseLogin__Butt {
+  border: none;
+  color: #4caf50;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: large;
+}
+
+.FirebaseLogin__Butt:hover {
+  color: white;
 }
