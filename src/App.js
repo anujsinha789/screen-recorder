@@ -10,6 +10,7 @@ import {
 } from "react-icons/bs";
 import GoogleAd from "./components/GoogleAd";
 import FirebaseLogin from "./components/FirebaseLogin";
+import { LogContext } from "./context/LogContext";
 
 export default function App() {
   const [dow, setDow] = React.useState("none");
@@ -17,6 +18,8 @@ export default function App() {
   const [rec, setRec] = React.useState(false);
   const [sb, setSb] = React.useState(false);
   const [prev, setPrev] = React.useState();
+
+  const { loggedIn, dispatch } = React.useContext(LogContext);
 
   const [videoElement, setVideoElement] = React.useState(null);
   const [downloadLink, setDownloadLink] = React.useState(null);
@@ -182,6 +185,9 @@ export default function App() {
         <p>
           Record media on the go, without the hassle of complicated Software.
         </p>
+        {loggedIn === false ? (
+          <span>Log In to download the Recording</span>
+        ) : null}
       </div>
 
       <div className="App__Body">
@@ -194,8 +200,9 @@ export default function App() {
           >
             <BsPlayBtnFill size={25} />
           </button>
+
           <button
-            style={{ display: `${dow}` }}
+            style={{ display: `${loggedIn === true ? dow : "none"}` }}
             id="Download"
             className="record"
           >
