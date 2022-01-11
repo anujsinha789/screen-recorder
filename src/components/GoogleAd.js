@@ -9,7 +9,7 @@ class GoogleAd extends Component {
     return (
       <div>
         <ins
-          class="adsbygoogle"
+          className="adsbygoogle"
           style={{ display: "block" }}
           data-ad-client="ca-pub-8898673271651962"
           data-ad-slot="5978275945"

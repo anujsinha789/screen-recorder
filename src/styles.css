@@ -49,6 +49,33 @@ body {
   font-weight: bold;
 }
 
+.App__Description > span {
+  font-size: 1rem;
+  font-weight: bold;
+  color: red;
+  animation-name: beep;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes beep {
+  /* from {
+    color: red;
+  }
+  to {
+    color: black;
+  } */
+  0% {
+    color: red;
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    color: red;
+  }
+}
+
 .App__Body {
   display: flex;
   justify-content: center;
